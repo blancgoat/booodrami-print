@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      p {
+        margin: 0px;
+      }
+      span {
+        margin: 0px;
+      }
+    </style>
+  </head>
+  <body style="width: 150mm">
+    {% for row in excel %}
+    <div style="position: relative; height: 99.5mm; margin: 4mm; padding: 0mm">
+      <div style="height: 70px">
+        <div style="float: left">
+          <div style="width: 250px; height: 50px">
+            <span style="margin: 0px"
+              >보내는사람 &nbsp; &nbsp; &nbsp; &nbsp;(28115)</span
+            >
+            <p style="margin: 0px">부드라미 010-6838-1496</p>
+            <p style="margin: 0px">충청북도 청주시 청원구 오창읍</p>
+            <p style="margin: 0px">양청택지로 124-28 201호</p>
+          </div>
+        </div>
+        <p style="float: right">1</p>
+      </div>
+      <div style="padding-top: 5mm; padding-left: 15mm">
+        <h2>받는사람</h2>
+        <div>
+          <p>{{row.수취인명}}</p>
+          <p>
+            <span>{{row.수취인연락처1}}</span>
+            <span>({{ row.우편번호 }})</span>
+          </p>
+          <p>{{row.배송지}}</p>
+          {% if row.배송메세지 != row.배송메세지 %}
+          <p>&nbsp;</p>
+          {% else %}
+          <p>{{row.배송메세지}}</p>
+          {% endif %}
+        </div>
+      </div>
+      <p style="position: absolute; right: 0px; bottom: 0px">20</p>
+    </div>
+    {% endfor %}
+  </body>
+</html>
