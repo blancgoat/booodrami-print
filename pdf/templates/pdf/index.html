@@ -24,7 +24,7 @@
             <p style="margin: 0px">양청택지로 124-28 201호</p>
           </div>
         </div>
-        <p style="float: right">1</p>
+        <p style="float: right">{{row.고유번호}}</p>
       </div>
       <div style="padding-top: 5mm; padding-left: 15mm">
         <h2>받는사람</h2>
@@ -32,7 +32,7 @@
           <p>{{row.수취인명}}</p>
           <p>
             <span>{{row.수취인연락처1}}</span>
-            <span>({{ row.우편번호 }})</span>
+            <span>({{row.우편번호}})</span>
           </p>
           <p>{{row.배송지}}</p>
           {% if row.배송메세지 != row.배송메세지 %}
@@ -42,7 +42,7 @@
           {% endif %}
         </div>
       </div>
-      <p style="position: absolute; right: 0px; bottom: 0px">20</p>
+      <p style="position: absolute; right: 0px; bottom: 0px">{{row.수량}}</p>
     </div>
     {% endfor %}
   </body>
