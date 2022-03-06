@@ -9,11 +9,16 @@
         target="_blank"
         enctype="multipart/form-data"
       >
-        {% csrf_token %}
-        <p>엑셀파일을 선택하세요(확장명 xlsx)</p>
+        {% csrf_token %} {% load static %}
+        <span>엑셀파일을 선택하세요(확장명 xlsx)</span>
+        <a
+          href="{% static 'excel/스마트스토어전체주문발주발송관리_20220115_0107_test.xlsx' %}"
+          >엑셀예제파일</a
+        >
+        <br />
         <input type="file" id="excel" name="excel" />
-        <br /><br />
-        {% load static %}
+        <br />
+        <br />
         <button onclick="formSubmit('/pdf/');">
           <img src="{% static 'images/preview.png' %}" />
         </button>
