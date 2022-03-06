@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div id="root">
+      <form
+        id="excelForm"
+        method="post"
+        target="_blank"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <p>엑셀파일을 선택하세요(확장명 xlsx)</p>
+        <input type="file" id="excel" name="excel" />
+        <br /><br />
+        {% load static %}
+        <button onclick="formSubmit('/pdf/');">
+          <img src="{% static 'images/preview.png' %}" />
+        </button>
+        <button onclick="formSubmit('/print/');">
+          <img src="{% static 'images/download.png' %}" />
+        </button>
+      </form>
+    </div>
+  </body>
+  <script>
+    function formSubmit(actionUrl) {
+      var excelForm = document.getElementById("excelForm");
+      excelForm.action = actionUrl;
+      excelForm.submit();
+    }
+  </script>
+</html>

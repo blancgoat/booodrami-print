@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('pdf/', include('pdf.urls')),
     path('print/', include('print.urls')),
+    path('upload/', include('upload.urls'))
 ]

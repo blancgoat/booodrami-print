@@ -1,4 +1,5 @@
 .DS_Store
 .history
-booodrami.xlsx
-wow.pdf
+*.xlsx
+*.pdf
+/*.html
