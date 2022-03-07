@@ -10,3 +10,12 @@ def index(request):
     }
 
     return render(request, 'pdf/index.html', context)
+
+def withOption(request):
+    excelBoodrami = ExcelBoodrami(request.FILES['excel'])
+    
+    context = {
+        'excel': excelBoodrami.exportWithOption(),
+    }
+
+    return render(request, 'pdf/withOption.html', context)
