@@ -3,12 +3,7 @@
   <head></head>
   <body>
     <div id="root">
-      <form
-        id="excelForm"
-        method="post"
-        target="_blank"
-        enctype="multipart/form-data"
-      >
+      <form id="excelForm" method="post" enctype="multipart/form-data">
         {% csrf_token %} {% load static %}
         <span>엑셀파일을 선택하세요(확장명 xlsx)</span>
         <a
@@ -16,7 +11,7 @@
           >엑셀예제파일</a
         >
         <br />
-        <input type="file" id="excel" name="excel" />
+        <input type="file" id="excel" name="excel" accept=".xlsx" />
         <br />
         <br />
         <button onclick="formSubmit('/pdf/');">
@@ -30,8 +25,14 @@
   </body>
   <script>
     function formSubmit(actionUrl) {
+      if (!document.getElementById("excel").value) {
+        alert("엑셀파일을 업로드해주세요.");
+        return false;
+      }
+
       var excelForm = document.getElementById("excelForm");
       excelForm.action = actionUrl;
+      excelForm.target = "_blank";
       excelForm.submit();
     }
   </script>
